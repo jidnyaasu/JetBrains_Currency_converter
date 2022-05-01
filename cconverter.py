@@ -21,32 +21,32 @@ def check_cache(currency):
 
 
 def in_cache():
-    print("Oh! It is in the cache!")
+    print("\nOh! It is in the cache!")
     print_conversion()
 
 
 def not_in_cache():
-    print("Sorry, but it is not in the cache!")
+    print("Sorry, but it is not in the cache!\nBut we will bring you the conversion in no time!\n")
     exchange_rates(conversion_currency)
     print_conversion()
 
 
 def print_conversion():
-    print(f"You received "
+    print(f"You will receive "
           f"{round(currency_cache[conversion_currency][user_currency]['inverseRate'] * money, 2)}"
-          f" {conversion_currency}.")
+          f" {conversion_currency} for {money} {user_currency}.\n")
 
 
-user_currency = input().lower()
+user_currency = input("Enter the currency you have: ").lower()
+money = float(input("Enter the amount you have: "))
 usd_eur_cache()
 
 while True:
-    conversion_currency = input().lower()
+    conversion_currency = input("Enter the currency you want to convert to: ").lower()
     if not conversion_currency:
         break
 
-    money = float(input())
-    print("Checking the cache...")
+    print("\nChecking the cache...\n")
 
     if check_cache(conversion_currency):
         in_cache()
