@@ -4,26 +4,10 @@ currency_cache = {}
 
 
 def exchange_rates(currency):
-    # global currency_cache
     try:
         return requests.get(f"http://www.floatrates.com/daily/{currency}.json").json()
     except requests.JSONDecodeError:
         return False
-
-
-# def check_cache(currency):
-#     if currency in currency_cache:
-#         return True
-#     return False
-
-
-# def in_cache():
-#     print_conversion()
-
-
-# def not_in_cache():
-#     exchange_rates(conversion_currency)
-#     print_conversion()
 
 
 def print_conversion():
@@ -51,8 +35,3 @@ while True:
             print_conversion()
     except KeyError:
         print("Enter valid currency code")
-
-    # if check_cache(conversion_currency):
-    #     in_cache()
-    # else:
-    #     not_in_cache()
